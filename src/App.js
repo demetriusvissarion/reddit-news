@@ -7,7 +7,7 @@ function App() {
   const [subreddit, setSubreddit] = useState("webdev");
 
   useEffect(() => {
-    fetch("https://www.reddit.com/r/webdev.json").then((result) => {
+    fetch("https://www.reddit.com/r/" + subreddit + ".json").then((result) => {
       if (result.status !== 200) {
         console.log("ERROR");
         return;
@@ -24,7 +24,12 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <input type="text" className="input" value="webdev" />
+        <input
+          type="text"
+          className="input"
+          value={subreddit}
+          onChange={(e) => setSubreddit(e.target.value)}
+        />
       </header>
       <div className="articles">
         {articles !== null
