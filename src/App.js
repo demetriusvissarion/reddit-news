@@ -27,7 +27,11 @@ function App() {
         <input type="text" className="input" value="webdev" />
       </header>
       <div className="articles">
-        <Article />
+        {articles !== null
+          ? articles.map((article, index) => (
+              <Article key={index} article={article.data} />
+            ))
+          : ""}
       </div>
     </div>
   );

@@ -1,10 +1,10 @@
 import React from "react";
 
-function Article() {
+function Article(props) {
   return (
     <article>
-      <a href="#">
-        <h3>Title</h3>
+      <a href={"https://reddit.com" + props.article.permalink} target="_blank">
+        <h3>{props.article.title}</h3>
       </a>
     </article>
   );
